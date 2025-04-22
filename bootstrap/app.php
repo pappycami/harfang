@@ -1,5 +1,6 @@
 <?php
 
+use App\Exceptions\Api\ApiExceptionHandler;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -15,8 +16,10 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         //
     })
-    ->withExceptions(function (Exceptions $exceptions) use ($exceptionHandler) {
-        $exceptions->renderable(function (Throwable $e, Request $request) use ($exceptionHandler) {
-            return $exceptionHandler->handleException($e, $request);
-        });
+    ->withExceptions(function (Exceptions $exceptions) {
+        // Ton traitement ici directement
+        // Ou laisse Laravel gérer si tu ne fais rien de spécial
+        if ($exceptions instanceof ApiExceptionHandler) {
+            return response()->json(['error' => 'Something went wrong'], 500);
+        }
     })->create();
