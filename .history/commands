@@ -1,0 +1,15 @@
+composer create-project "laravel/laravel:^11" harfang
+php artisan about --only=environment
+php artisan env:encrypt
+php artisan env:encrypt --key=3UVsEgGVK36XN82KKeyLFMhvosbZN1aFPappyEsokia
+php artisan key:generate --ansi
+php artisan migrate
+php artisan config:publish
+php artisan config:publish --all
+php artisan config:cache
+php artisan config:clear
+php artisan config:show database
+
+php artisan down --with-secret
+php artisan down --render="errors::503"
+php artisan up
