@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Ecouter Xdebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "log": true,
+            "pathMappings": {
+                "/C:/projects/back/exo/harfang": "${workspaceFolder}"
+            }
+        }
+    ]
+}
