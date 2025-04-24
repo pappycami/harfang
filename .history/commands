@@ -1,0 +1,35 @@
+composer create-project "laravel/laravel:^11" harfang
+php artisan about --only=environment
+php artisan env:encrypt
+php artisan env:encrypt --key=3UVsEgGVK36XN82KKeyLFMhvosbZN1aFPappyEsokia
+php artisan key:generate --ansi
+php artisan migrate
+php artisan config:publish
+php artisan config:publish --all
+php artisan config:cache
+php artisan config:show database
+
+php artisan config:clear
+php artisan cache:clear
+
+php artisan down --with-secret
+php artisan down --render="errors::503"
+php artisan up
+
+php artisan make:model Blog -m
+php artisan make:resource BlogResource
+php artisan make:factory BlogFactory
+php artisan make:seeder BlogSeeder
+php artisan db:seed --class=BlogSeeder
+
+php artisan make:controller API/BaseController
+php artisan make:controller Api/AuthController
+php artisan make:controller API/BlogController
+
+php artisan make:seeder UserSeeder
+php artisan db:seed --class=UserSeeder
+
+php artisan migrate:refresh --seed
+
+php artisan make:trait Api/ApiResponses
+php artisan make:exception Api/ApiExceptionHandler
