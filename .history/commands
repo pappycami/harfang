@@ -33,3 +33,11 @@ php artisan migrate:refresh --seed
 
 php artisan make:trait Api/ApiResponses
 php artisan make:exception Api/ApiExceptionHandler
+
+composer require laravel/scout
+composer require matchish/laravel-scout-elasticsearch
+--> composer require php-http/guzzle7-adapter http-interop/http-factory-guzzle -W
+    php artisan config:clear
+    php artisan cache:clear
+    composer show matchish/laravel-scout-elasticsearch
+php artisan scout:import "App\Models\Blog"
