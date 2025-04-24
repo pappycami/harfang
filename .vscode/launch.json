@@ -6,7 +6,8 @@
             "type": "php",
             "request": "launch",
             "port": 9003,
-            "log": true,
+            "log": false,
+            "stopOnEntry": false,
             "pathMappings": {
                 "/C:/projects/back/exo/harfang": "${workspaceFolder}"
             }
